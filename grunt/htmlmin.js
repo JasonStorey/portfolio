@@ -1,15 +1,15 @@
 module.exports = function(grunt, options) {
     return {
-        dist: {
-            options: {
-                removeComments: true,
-                collapseWhitespace: true
-            },
+        dev: {
             files: {
                 'dist/index.html': 'src/html/index.html'
             }
         },
-        dev: {
+        prod: {
+            options: {
+                removeComments: true,
+                collapseWhitespace: true
+            },
             files: {
                 'dist/index.html': 'src/html/index.html'
             }
