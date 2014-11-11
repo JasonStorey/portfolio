@@ -1,26 +1,7 @@
-.navigation {
-    height: 40px;
-}
-
 .navigation a {
     display: block;
-    height: 100%;
-    width: 25%;
-    float: left;
-}
-
-.navigation a.one {
-    background: url('http://lorempixel.com/100/100/abstract/1');
-}
-
-.navigation a.two {
-    background: url('http://lorempixel.com/100/100/abstract/2');
-}
-
-.navigation a.three {
-    background: url('http://lorempixel.com/100/100/abstract/3');
-}
-
-.navigation a.four {
-    background: url('http://lorempixel.com/100/100/abstract/4');
+    overflow: hidden;
+    height: 90px;
+    width: 90px;
+    margin: 5px;
 }
