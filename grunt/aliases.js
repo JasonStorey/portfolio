@@ -3,7 +3,8 @@ module.exports = function(grunt, options) {
         'default': ['build'],
         'build': [
             'htmlmin:dev',
-            'cssmin:combine'
+            'cssmin:combine',
+            'uglify:dev'
         ]
     };
 };

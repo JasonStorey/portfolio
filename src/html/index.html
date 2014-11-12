@@ -20,5 +20,22 @@
             <a href="#" class="float-left"><img src="http://lorempixel.com/90/90/abstract/4" /></a>
         </div>
     </div>
+    <script type="application/javascript" src="./portfolio.js"></script>
+    <script type="application/javascript">
+        (function(portfolio) {
+            var config = {
+                projects: [{
+                    name: 'JamJamJamJam',
+                    description:'I\'d wanted to try out Google\'s Web Starter Kit for a while - Jam\'s elegant portfolio was the perfect excuse.',
+                    category: 'Web Design',
+                    embedUrl: 'http://jamjamjamjam.com/',
+                    githubUrl: 'https://github.com/JasonStorey/jamjamjamjam'
+                }]
+            };
+
+            portfolio.init(config);
+
+        }(window.portfolio));
+    </script>
 </body>
 </html>
