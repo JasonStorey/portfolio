@@ -1,7 +1,7 @@
 .navigation a {
     display: block;
     overflow: hidden;
-    height: 90px;
-    width: 90px;
-    margin: 5px;
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
 }
