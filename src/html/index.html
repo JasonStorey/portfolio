@@ -15,12 +15,16 @@
     <div class="navigation section">
         <div class="content-box clearfix"></div>
     </div>
+    <div class="display section">
+        <div class="iframe-wrapper"></div>
+    </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="application/javascript" src="./portfolio.js"></script>
     <script type="application/javascript">
         (function(portfolio) {
             var config = {
                 thumbnailContainerSelector: '.navigation .content-box',
+                displayContainerSelector: '.display .iframe-wrapper',
                 projects: [
                     {
                         name: 'Checkbox Type',

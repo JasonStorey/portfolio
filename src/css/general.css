@@ -6,6 +6,10 @@ html, body {
     color: #34B6A4;
 }
 
+body {
+    padding-top: 10px;
+}
+
 h1 {
     font-size: 1.9em;
 }
@@ -28,7 +32,7 @@ img {
 }
 
 .section {
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
 .float-left {

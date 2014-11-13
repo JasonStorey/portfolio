@@ -1,6 +1,11 @@
 window.portfolio = (function portfolio(window, $) {
+    var $display;
+
     function init(config) {
+        $display = $(config.displayContainerSelector);
+
         setupThumbnails(config);
+        displayProject(config.projects[0]);
     }
 
     function setupThumbnails(config) {
@@ -25,6 +30,18 @@ window.portfolio = (function portfolio(window, $) {
             $thumb.append($thumbImg);
             $thumbsContainer.append($thumb);
         });
+    }
+
+    function displayProject(project) {
+        var $iframe = $('<iframe>');
+
+        $display.empty();
+
+        $iframe.attr({
+            src: project.embedUrl
+        });
+
+        $display.append($iframe);
     }
 
     return {

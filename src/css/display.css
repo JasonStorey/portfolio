@@ -1,0 +1,16 @@
+.display {
+    position: absolute;
+    width: 100%;
+    top: 157px;
+    bottom: 0;
+    background: #34B6A4;
+}
+
+.display .iframe-wrapper {
+    height: 100%;
+}
+
+.display .iframe-wrapper iframe {
+    height: 100%;
+    width: 100%;
+}
