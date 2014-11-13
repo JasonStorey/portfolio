@@ -1,6 +1,7 @@
 .navigation a {
     display: block;
     overflow: hidden;
+    float: left;
     height: 60px;
     width: 60px;
     margin-right: 10px;

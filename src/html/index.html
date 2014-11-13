@@ -13,24 +13,32 @@
         </div>
     </div>
     <div class="navigation section">
-        <div class="content-box clearfix">
-            <a href="#" class="float-left"><img src="http://lorempixel.com/90/90/abstract/1" /></a>
-            <a href="#" class="float-left"><img src="http://lorempixel.com/90/90/abstract/2" /></a>
-            <a href="#" class="float-left"><img src="http://lorempixel.com/90/90/abstract/3" /></a>
-            <a href="#" class="float-left"><img src="http://lorempixel.com/90/90/abstract/4" /></a>
-        </div>
+        <div class="content-box clearfix"></div>
     </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="application/javascript" src="./portfolio.js"></script>
     <script type="application/javascript">
         (function(portfolio) {
             var config = {
-                projects: [{
-                    name: 'JamJamJamJam',
-                    description:'I\'d wanted to try out Google\'s Web Starter Kit for a while - Jam\'s elegant portfolio was the perfect excuse.',
-                    category: 'Web Design',
-                    embedUrl: 'http://jamjamjamjam.com/',
-                    githubUrl: 'https://github.com/JasonStorey/jamjamjamjam'
-                }]
+                thumbnailContainerSelector: '.navigation .content-box',
+                projects: [
+                    {
+                        name: 'Checkbox Type',
+                        description: 'An extremely useful JS tool for rendering HTML text using only checkboxes',
+                        category: 'JS',
+                        thumbnailUrl: 'http://lorempixel.com/90/90/abstract/1',
+                        embedUrl: 'http://jamjamjamjam.com/',
+                        githubUrl: 'https://github.com/JasonStorey/checkbox-type'
+                    },
+                    {
+                        name: 'JamJamJamJam',
+                        description: 'I\'d wanted to try out Google\'s Web Starter Kit for a while - Jam\'s elegant portfolio was the perfect excuse.',
+                        category: 'Web Design',
+                        thumbnailUrl: 'http://lorempixel.com/90/90/abstract/2',
+                        embedUrl: 'http://jamjamjamjam.com/',
+                        githubUrl: 'https://github.com/JasonStorey/jamjamjamjam'
+                    }
+                ]
             };
 
             portfolio.init(config);
