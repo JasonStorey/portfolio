@@ -1,5 +1,6 @@
 window.portfolio = (function portfolio(window, $) {
-    var $display;
+    var $display,
+        currentProject;
 
     function init(config) {
         $display = $(config.displayContainerSelector);
@@ -24,7 +25,7 @@ window.portfolio = (function portfolio(window, $) {
             $thumb.addClass('thumbnail');
 
             $thumb.on('click', function() {
-                window.console.log(project);
+                displayProject(project);
             });
 
             $thumb.append($thumbImg);
@@ -35,6 +36,12 @@ window.portfolio = (function portfolio(window, $) {
     function displayProject(project) {
         var $iframe = $('<iframe>');
 
+        if(currentProject === project) {
+            return;
+        }
+
+        window.console.log(project);
+
         $display.empty();
 
         $iframe.attr({
@@ -42,6 +49,7 @@ window.portfolio = (function portfolio(window, $) {
         });
 
         $display.append($iframe);
+        currentProject = project;
     }
 
     return {
