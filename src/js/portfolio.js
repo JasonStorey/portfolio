@@ -1,5 +1,6 @@
 window.portfolio = (function portfolio(window, $) {
     var $display,
+        $thumbsContainer,
         currentProject;
 
     function init(config) {
@@ -10,7 +11,7 @@ window.portfolio = (function portfolio(window, $) {
     }
 
     function setupThumbnails(config) {
-        var $thumbsContainer = $(config.thumbnailContainerSelector);
+        $thumbsContainer = $(config.thumbnailContainerSelector);
 
         config.projects.forEach(function(project) {
             var $thumb = $('<a>'),
@@ -22,7 +23,7 @@ window.portfolio = (function portfolio(window, $) {
                 title: project.name
             });
 
-            $thumb.addClass('thumbnail');
+            $thumb.addClass('thumbnail thumbnail_' + project.id);
 
             $thumb.on('click', function() {
                 displayProject(project);
@@ -39,9 +40,10 @@ window.portfolio = (function portfolio(window, $) {
         if(currentProject === project) {
             return;
         }
-
         window.console.log(project);
 
+        $thumbsContainer.find('.selected').removeClass('selected');
+        $('.thumbnail_' + project.id).addClass('selected');
         $display.empty();
 
         $iframe.attr({

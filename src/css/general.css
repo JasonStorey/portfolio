@@ -3,6 +3,7 @@ html, body {
     min-height: 100%;
     font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
     font-size: 14px;
+    font-weight: 400;
     line-height: 1.5;
     color: #3A3A3A;
 }
@@ -12,17 +13,8 @@ body {
     overflow: hidden;
 }
 
-h1 {
-    font-size: 1.9em;
-}
-
 h1, h2, h3 {
-    padding: 0.5em 0;
-}
-
-p {
-    font-size: 1em;
-    padding: 1em 0;
+    font-weight: 400;
 }
 
 img {
@@ -30,11 +22,7 @@ img {
 }
 
 .content-box {
-    padding: 0 10px;
-}
-
-.section {
-    margin-bottom: 10px;
+    padding: 0 20px;
 }
 
 .float-left {
