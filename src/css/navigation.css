@@ -25,3 +25,8 @@
     left: 5px;
     box-shadow: 0 0 0 0 #8E8A8A;
 }
+
+.navigation a img {
+    height: auto;
+    max-width: 100%;
+}

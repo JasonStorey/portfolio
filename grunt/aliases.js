@@ -4,7 +4,8 @@ module.exports = function(grunt, options) {
         'build': [
             'htmlmin:dev',
             'cssmin:combine',
-            'uglify:dev'
+            'uglify:dev',
+            'imagemin:prod'
         ]
     };
 };
