@@ -19,7 +19,7 @@ window.portfolio = (function portfolio(window, $) {
             });
         }
 
-        displayProject(nextProject);
+        switchProject(nextProject);
     }
 
     function setupThumbnails(config) {
@@ -46,12 +46,18 @@ window.portfolio = (function portfolio(window, $) {
         });
     }
 
-    function displayProject(project) {
-        var $iframe = $('<iframe>');
-
+    function switchProject(project) {
         if(currentProject === project) {
             return;
         }
+
+        window.location.hash = '#/' + project.hash;
+        displayProject(project);
+        currentProject = project;
+    }
+
+    function displayProject(project) {
+        var $iframe = $('<iframe>');
 
         $thumbsContainer.find('.selected').removeClass('selected');
         $('.thumbnail_' + project.id).addClass('selected');
@@ -62,12 +68,6 @@ window.portfolio = (function portfolio(window, $) {
         });
 
         $display.append($iframe);
-        currentProject = project;
-    }
-
-    function switchProject(project) {
-        window.location.hash = '#/' + project.hash;
-        displayProject(project);
     }
 
     function getCurrentProjectHash() {
