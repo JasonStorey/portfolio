@@ -4,10 +4,22 @@ window.portfolio = (function portfolio(window, $) {
         currentProject;
 
     function init(config) {
+        var currentProjectHash = getCurrentProjectHash(),
+            nextProject = config.projects[0];
+
         $display = $(config.displayContainerSelector);
 
         setupThumbnails(config);
-        displayProject(config.projects[0]);
+
+        if(currentProjectHash.length > 0) {
+            config.projects.forEach(function(project) {
+                if(project.hash === currentProjectHash) {
+                    nextProject = project;
+                }
+            });
+        }
+
+        displayProject(nextProject);
     }
 
     function setupThumbnails(config) {
@@ -26,7 +38,7 @@ window.portfolio = (function portfolio(window, $) {
             $thumb.addClass('thumbnail thumbnail_' + project.id);
 
             $thumb.on('click', function() {
-                displayProject(project);
+                switchProject(project);
             });
 
             $thumb.append($thumbImg);
@@ -40,7 +52,6 @@ window.portfolio = (function portfolio(window, $) {
         if(currentProject === project) {
             return;
         }
-        window.console.log(project);
 
         $thumbsContainer.find('.selected').removeClass('selected');
         $('.thumbnail_' + project.id).addClass('selected');
@@ -54,8 +65,24 @@ window.portfolio = (function portfolio(window, $) {
         currentProject = project;
     }
 
+    function switchProject(project) {
+        window.location.hash = '#/' + project.hash;
+        displayProject(project);
+    }
+
+    function getCurrentProjectHash() {
+        var projectHash = '';
+
+        try {
+            projectHash = window.location.hash.match(/#\/([\w-]+)/i)[1];
+        } catch (e) {}
+
+        return projectHash;
+    }
+
     return {
-        init: init
+        init: init,
+        switchProject: switchProject
     };
 
 }(window, window.jQuery));
