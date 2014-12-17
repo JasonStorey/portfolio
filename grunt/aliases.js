@@ -6,6 +6,7 @@ module.exports = function(grunt, options) {
             'cssmin:combine',
             'uglify:dev',
             'imagemin:prod'
-        ]
+        ],
+        'deploy': ['ftp-deploy:dev']
     };
 };
