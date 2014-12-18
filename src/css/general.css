@@ -9,7 +9,6 @@ html, body {
 }
 
 body {
-    padding-top: 10px;
     overflow: hidden;
 }
 
@@ -40,4 +39,10 @@ img {
 
 .clearfix {
     zoom: 1; /* ie 6/7 */
+}
+
+@media all and (max-width: 640px) {
+    .content-box {
+        padding: 0 10px;
+    }
 }

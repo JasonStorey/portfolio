@@ -1,6 +1,7 @@
 .header {
     height: 50px;
     margin-bottom: 10px;
+    padding-top: 10px;
 }
 
 .header .title {
@@ -10,4 +11,10 @@
     color: #3A3A3A;
     height: 50px;
     display: inline-block;
+}
+
+@media all and (max-width: 640px) {
+    .header .title {
+        font-size: 30px;
+    }
 }
