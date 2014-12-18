@@ -1,6 +1,6 @@
 window.portfolio = (function portfolio(window, $) {
     var $display,
-        $thumbsContainer,
+        $navigationContainer,
         currentProject;
 
     function init(config) {
@@ -9,7 +9,7 @@ window.portfolio = (function portfolio(window, $) {
 
         $display = $(config.displayContainerSelector);
 
-        setupThumbnails(config);
+        setupNavigation(config);
 
         if(currentProjectHash.length > 0) {
             config.projects.forEach(function(project) {
@@ -22,28 +22,47 @@ window.portfolio = (function portfolio(window, $) {
         switchProject(nextProject);
     }
 
-    function setupThumbnails(config) {
-        $thumbsContainer = $(config.thumbnailContainerSelector);
+    function setupNavigation(config) {
+        $navigationContainer = $(config.navigationContainerSelector);
+        config.projects.forEach(createNavForProject);
+    }
 
-        config.projects.forEach(function(project) {
-            var $thumb = $('<a>'),
-                $thumbImg = $('<img>');
+    function createNavForProject(project) {
+        var $navigation = $('<div>').addClass('nav-item nav-item-' + project.id + ' clearfix'),
+            $thumb = $('<a>').addClass('thumbnail'),
+            $thumbImg = $('<img>'),
+            $deets = $('<div>').addClass('details'),
+            $title = $('<h3>'),
+            $clickThrough = $('<a>' + project.name + '</a>'),
+            $description = $('<span>' + project.description + '</span>').addClass('description');
 
-            $thumbImg.attr({
-                src: project.thumbnailUrl,
-                alt: project.name,
-                title: project.name
-            });
-
-            $thumb.addClass('thumbnail thumbnail_' + project.id);
-
-            $thumb.on('click', function() {
-                switchProject(project);
-            });
-
-            $thumb.append($thumbImg);
-            $thumbsContainer.append($thumb);
+        $thumbImg.attr({
+            src: project.thumbnailUrl,
+            alt: project.name,
+            title: project.name
         });
+
+        $thumb.on('click', function() {
+            switchProject(project);
+        });
+
+        $thumb.append($thumbImg);
+
+        $clickThrough.attr({
+            href: project.link,
+            title: project.link,
+            alt: project.link,
+            target: '_blank'
+        });
+
+        $title.append($clickThrough);
+        $deets.append($title);
+        $deets.append($description);
+
+        $navigation.append($thumb);
+        $navigation.append($deets);
+
+        $navigationContainer.append($navigation);
     }
 
     function switchProject(project) {
@@ -59,8 +78,8 @@ window.portfolio = (function portfolio(window, $) {
     function displayProject(project) {
         var $iframe = $('<iframe>');
 
-        $thumbsContainer.find('.selected').removeClass('selected');
-        $('.thumbnail_' + project.id).addClass('selected');
+        $navigationContainer.find('.selected').removeClass('selected');
+        $('.nav-item-' + project.id).addClass('selected');
         $display.empty();
 
         $iframe.attr({

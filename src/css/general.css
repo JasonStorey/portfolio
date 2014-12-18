@@ -20,6 +20,10 @@ img {
     display: block;
 }
 
+a {
+    color: inherit;
+}
+
 .content-box {
     padding: 0 20px;
 }
