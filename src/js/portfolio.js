@@ -1,4 +1,4 @@
-window.portfolio = (function portfolio(window, $) {
+window.PORTFOLIO = (function portfolio(window, $) {
     var $display,
         $navigationContainer,
         currentProject;
