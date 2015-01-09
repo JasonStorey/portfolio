@@ -1,3 +1,7 @@
+.navigation {
+    min-width: 640px;
+}
+
 .navigation .nav-item {
     float: left;
     margin-right: 20px;
