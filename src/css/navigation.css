@@ -1,10 +1,9 @@
 .navigation {
-    min-width: 640px;
+    padding: 20px 0;
 }
 
 .navigation .nav-item {
-    float: left;
-    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .navigation .nav-item a.thumbnail {
@@ -20,6 +19,8 @@
     border: solid #3A3A3A 1px;
     box-shadow: 5px 5px 0 0 #8E8A8A;
     transition: box-shadow 0.1s, top 0.1s, left 0.1s;
+    margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 .navigation .nav-item a.thumbnail:hover {
@@ -40,10 +41,6 @@
 }
 
 .navigation .nav-item .details {
-    display: none;
-    width: 240px;
-    float: left;
-    margin-left: 20px;
 }
 
 .navigation .nav-item.selected .details {

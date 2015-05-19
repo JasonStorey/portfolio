@@ -1,32 +1,28 @@
 .display {
     position: absolute;
     width: 100%;
-    top: 130px;
+    top: 71px;
     bottom: 0;
+    display: none;
+    background: #FFF;
 }
 
-.display .iframe-wrapper {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
-    border: solid #3A3A3A 1px;
-    box-shadow: 5px 5px 0 0 #8E8A8A;
+.display.visible {
+    display: block;
 }
 
-.display .iframe-wrapper iframe {
+.display iframe {
     height: 100%;
     width: 100%;
 }
 
-@media all and (max-width: 640px) {
-    .display .iframe-wrapper {
-        left: 0;
-        right: 0;
-        bottom: 0;
-        box-shadow: none;
-        border-left: 0;
-        border-right: 0;
-    }
+a.display-close-button {
+    display: block;
+    position: absolute;
+    top: -70px;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    background: red;
 }

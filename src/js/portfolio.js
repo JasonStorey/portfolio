@@ -1,25 +1,34 @@
 window.PORTFOLIO = (function portfolio(window, $) {
     var $display,
         $navigationContainer,
+        $displayIframe,
         currentProject;
 
     function init(config) {
-        var currentProjectHash = getCurrentProjectHash(),
-            nextProject = config.projects[0];
+        var currentProjectHash = getCurrentProjectHash();
 
-        $display = $(config.displayContainerSelector);
-
+        setupDisplay(config);
         setupNavigation(config);
 
         if(currentProjectHash.length > 0) {
             config.projects.forEach(function(project) {
                 if(project.hash === currentProjectHash) {
-                    nextProject = project;
+                    switchProject(project);
                 }
             });
         }
+    }
 
-        switchProject(nextProject);
+    function setupDisplay(config) {
+        var $closeButton = $('<a>');
+
+        $closeButton.addClass('display-close-button');
+        $closeButton.click(function() {
+            reset();
+        });
+
+        $display = $(config.displayContainerSelector);
+        $display.append($closeButton);
     }
 
     function setupNavigation(config) {
@@ -75,18 +84,27 @@ window.PORTFOLIO = (function portfolio(window, $) {
         currentProject = project;
     }
 
+    function reset() {
+        currentProject = undefined;
+        window.location.hash = '';
+        $navigationContainer.find('.selected').removeClass('selected');
+        $displayIframe.remove();
+        $display.removeClass('visible');
+    }
+
     function displayProject(project) {
-        var $iframe = $('<iframe>');
+        $displayIframe = $('<iframe>');
 
         $navigationContainer.find('.selected').removeClass('selected');
         $('.nav-item-' + project.id).addClass('selected');
-        $display.empty();
+        $displayIframe.remove();
 
-        $iframe.attr({
+        $displayIframe.attr({
             src: project.embedUrl
         });
 
-        $display.append($iframe);
+        $display.append($displayIframe);
+        $display.addClass('visible');
     }
 
     function getCurrentProjectHash() {
