@@ -7,6 +7,8 @@ window.PORTFOLIO = (function portfolio(window, $) {
     function init(config) {
         var currentProjectHash = getCurrentProjectHash();
 
+        $(config.homeButtonSelector).click(reset);
+
         setupDisplay(config);
         setupNavigation(config);
 
