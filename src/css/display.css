@@ -21,8 +21,55 @@ a.display-close-button {
     position: absolute;
     top: -70px;
     right: 0;
-    width: 70px;
-    height: 70px;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
-    background: red;
+    padding: 23px;
+    -webkit-transition-duration:0.5s;
+    transition-duration:0.5s;
+    transition: all .3s ease-out;
+}
+
+a.display-close-button:hover {
+    transform: rotate(180deg);
+}
+
+.x {
+    width: 24px;
+    height: 24px;
+    float:left;
+    position:relative;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background:#545454;
+    cursor:pointer;
+}
+
+.x b {
+    display:block;
+    position:absolute;
+    height:0;
+    width:0;
+    padding:0;
+    margin:0;
+}
+.x b {
+    border:12px solid rgba(255,255,255,0);
+}
+.x b:nth-child(1){
+    border-top-color:#FFF;
+    top:-2px;
+}
+.x b:nth-child(2){
+    border-left-color:#FFF;
+    left:-2px;
+}
+.x b:nth-child(3){
+    border-bottom-color:#FFF;
+    bottom:-2px;
+}
+.x b:nth-child(4){
+    border-right-color:#FFF;
+    right:-2px;
 }

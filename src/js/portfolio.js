@@ -20,9 +20,8 @@ window.PORTFOLIO = (function portfolio(window, $) {
     }
 
     function setupDisplay(config) {
-        var $closeButton = $('<a>');
+        var $closeButton = createCloseButton();
 
-        $closeButton.addClass('display-close-button');
         $closeButton.click(function() {
             reset();
         });
@@ -34,6 +33,25 @@ window.PORTFOLIO = (function portfolio(window, $) {
     function setupNavigation(config) {
         $navigationContainer = $(config.navigationContainerSelector);
         config.projects.forEach(createNavForProject);
+    }
+
+    function createCloseButton() {
+        var $closeButton = $('<a>'),
+            $x = $('<span>'),
+            $b1 = $('<b>'),
+            $b2 = $('<b>'),
+            $b3 = $('<b>'),
+            $b4 = $('<b>');
+
+        $closeButton.addClass('display-close-button');
+        $x.addClass('x');
+        $x.append($b1);
+        $x.append($b2);
+        $x.append($b3);
+        $x.append($b4);
+        $closeButton.append($x);
+
+        return $closeButton;
     }
 
     function createNavForProject(project) {
