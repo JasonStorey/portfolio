@@ -12,6 +12,14 @@ body {
     overflow: hidden;
 }
 
+.content {
+    position: absolute;
+    width: 100%;
+    top: 71px;
+    bottom: 0;
+    overflow: scroll;
+}
+
 h1, h2, h3 {
     font-weight: 400;
 }
