@@ -22,7 +22,8 @@ window.PORTFOLIO = (function portfolio(window, $) {
     }
 
     function setupDisplay(config) {
-        var $closeButton = createCloseButton();
+        var $closeButton = createCloseButton(),
+            $spinner = createSpinner();
 
         $closeButton.click(function() {
             reset();
@@ -30,11 +31,20 @@ window.PORTFOLIO = (function portfolio(window, $) {
 
         $display = $(config.displayContainerSelector);
         $display.append($closeButton);
+        $display.append($spinner);
     }
 
     function setupNavigation(config) {
         $navigationContainer = $(config.navigationContainerSelector);
         config.projects.forEach(createNavForProject);
+    }
+
+    function createSpinner() {
+        var $spinner = $('<div>').addClass('spinner'),
+            $cube1 = $('<div>').addClass('cube1'),
+            $cube2 = $('<div>').addClass('cube2')
+
+        return $spinner.append($cube1).append($cube2);
     }
 
     function createCloseButton() {
@@ -121,6 +131,11 @@ window.PORTFOLIO = (function portfolio(window, $) {
 
         $displayIframe.attr({
             src: project.embedUrl
+        });
+
+        $displayIframe.on('load', function onLoad() {
+            $displayIframe.off('load', onLoad);
+            $displayIframe.addClass('loaded');
         });
 
         $display.append($displayIframe);
