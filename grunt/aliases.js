@@ -2,10 +2,10 @@ module.exports = function(grunt, options) {
     return {
         'default': ['build'],
         'build': [
-            'htmlmin:dev',
-            'cssmin:combine',
-            'uglify:dev',
-            'imagemin:prod'
+            'newer:htmlmin:dev',
+            'newer:cssmin:combine',
+            'newer:uglify:dev',
+            'newer:imagemin:prod'
         ],
         'deploy': ['ftp-deploy:dev']
     };
