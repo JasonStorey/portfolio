@@ -118,8 +118,10 @@ window.PORTFOLIO = (function portfolio(window, $) {
         currentProject = undefined;
         window.location.hash = '';
         $navigationContainer.find('.selected').removeClass('selected');
-        $displayIframe.remove();
-        $display.removeClass('visible');
+        if($displayIframe) {
+            $displayIframe.remove();
+            $display.removeClass('visible');
+        }
     }
 
     function displayProject(project) {
