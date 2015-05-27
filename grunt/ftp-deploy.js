@@ -1,4 +1,10 @@
 module.exports = function(grunt, options) {
+    var destination = '/staging';
+
+    if(grunt.option('prod')) {
+        destination = '/';
+    }
+
     return {
         dev: {
             auth: {
@@ -8,7 +14,7 @@ module.exports = function(grunt, options) {
                 authKey: 'jasonstorey'
             },
             src: './dist',
-            dest: '/staging',
+            dest: destination,
             exclusions: []
         }
     };
